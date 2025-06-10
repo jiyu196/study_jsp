@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+	<button>뉴스기사 가져오기</button>
+	<ul>
+
+	</ul>
+
+	<script>
+            const xhr = new XMLHttpRequest(); //xml 객체생성
+
+        document.querySelector("button").addEventListener("click", e =>{
+            xhr.open("GET", "proxy");
+
+            xhr.onreadystatechange = () => {
+                if(xhr.status === 200 && xhr.readyState === 4){
+                    console.log(xhr.responseXML);
+                    const data = xhr.responseXML;
+
+                    let str = "";
+                    
+                    data.querySelectorAll("item").forEach(s => {
+
+                    	str += `<li><a href="${s.querySelector('link').innerHTML}">
+                        	${s.querySelector("title").innerHTML.replace('<![CDATA[','').replace(']]>','')}
+                    	 </a></li>`;
+                    }); //필요한 데이터 가져오기
+
+                    document.querySelector("ul").innerHTML += str;
+
+
+                }
+            }
+            xhr.send();
+        });
+    </script>
+</body>
+</html>
