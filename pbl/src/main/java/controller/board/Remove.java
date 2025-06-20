@@ -15,8 +15,8 @@ import lombok.extern.slf4j.Slf4j;
 import service.BoardService;
 import util.AlertUtil;
 
-@WebServlet("/board/view")
-public class View extends HttpServlet{
+@WebServlet("/board/remove")
+public class Remove extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -40,11 +40,9 @@ public class View extends HttpServlet{
 //		}
 		
 		BoardService service = new BoardService();
-		Board board =  service.findBy(Long.parseLong(req.getParameter("bno")));
+		service.remove(Long.valueOf(req.getParameter("bno")));
 		Criteria cri = Criteria.init(req);
-		req.setAttribute("cri", cri);
-		req.setAttribute("board", board);
-		req.getRequestDispatcher("/WEB-INF/views/board/view.jsp").forward(req, resp);
+		AlertUtil.alert("글이 삭제되었습니다", "/board/list?=" + cri.getQs2(), req, resp); //글쓰기작성 후 1페이지로 보내겠다
 	}
 
 	

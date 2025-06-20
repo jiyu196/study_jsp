@@ -1,0 +1,64 @@
+11:19:14.892 [main] INFO  sqltiming - select * from tbl_member where id = 'sae1'
+ {executed in 9 msec}
+11:19:14.915 [main] INFO  resultsettable - 
+|---|-----|-----|-----|------|--------------------|
+|no |id   |pw   |name |email |regdate             |
+|---|-----|-----|-----|------|--------------------|
+|2  |sae1 |1234 |null |null  |2025-06-11 18:13:37 |
+|---|-----|-----|-----|------|--------------------|
+
+11:19:14.933 [main] INFO  MemberService - Member(no=2, id=sae1, pw=1234, name=null, email=null, regdate=2025-06-11 18:13:37)
+11:19:14.942 [main] INFO  MemberService - 10 하하 20
+11:20:50.759 [main] INFO  sqltiming - select * from tbl_member where id = 'sae1'
+ {executed in 6 msec}
+11:20:50.782 [main] INFO  resultsettable - 
+|---|-----|-----|-----|------|--------------------|
+|no |id   |pw   |name |email |regdate             |
+|---|-----|-----|-----|------|--------------------|
+|2  |sae1 |1234 |null |null  |2025-06-11 18:13:37 |
+|---|-----|-----|-----|------|--------------------|
+
+11:20:50.799 [main] INFO  MemberService - Member(no=2, id=sae1, pw=1234, name=null, email=null, regdate=2025-06-11 18:13:37)
+11:20:50.805 [main] INFO  MemberService - 10 하하 20
+11:53:21.774 [main] INFO  sqltiming - insert into tbl_member(id, pw, name, email) values ('sae', '$2a$10$isp9Jaj6B0ZKaNgXvnrFpuF6XX2BG8Y.kZ1vlZhfTz8x8m.b4RbRi', '새똥이', NULL)
+ {executed in 7 msec}
+12:17:16.886 [main] INFO  sqltiming - select * from tbl_member where id = 'sae'
+ {executed in 9 msec}
+12:17:16.910 [main] INFO  resultsettable - 
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+|no |id  |pw                                                           |name |email |regdate             |
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+|4  |sae |$2a$10$isp9Jaj6B0ZKaNgXvnrFpuF6XX2BG8Y.kZ1vlZhfTz8x8m.b4RbRi |새똥이  |null  |2025-06-12 11:53:21 |
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+
+12:17:17.190 [main] INFO  MemberService - true
+12:17:17.200 [main] INFO  sqltiming - select * from tbl_member where id = 'sae'
+ {executed in 6 msec}
+12:17:17.209 [main] INFO  resultsettable - 
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+|no |id  |pw                                                           |name |email |regdate             |
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+|4  |sae |$2a$10$isp9Jaj6B0ZKaNgXvnrFpuF6XX2BG8Y.kZ1vlZhfTz8x8m.b4RbRi |새똥이  |null  |2025-06-12 11:53:21 |
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+
+12:17:17.293 [main] INFO  MemberService - false
+16:24:01.209 [main] INFO  sqltiming - select * from tbl_member where id = 'sae'
+ {executed in 7 msec}
+16:24:01.231 [main] INFO  resultsettable - 
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+|no |id  |pw                                                           |name |email |regdate             |
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+|4  |sae |$2a$10$isp9Jaj6B0ZKaNgXvnrFpuF6XX2BG8Y.kZ1vlZhfTz8x8m.b4RbRi |새똥이  |null  |2025-06-12 11:53:21 |
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+
+16:24:01.450 [main] INFO  MemberService - true
+16:24:01.457 [main] INFO  sqltiming - select * from tbl_member where id = 'sae'
+ {executed in 5 msec}
+16:24:01.459 [main] INFO  resultsettable - 
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+|no |id  |pw                                                           |name |email |regdate             |
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+|4  |sae |$2a$10$isp9Jaj6B0ZKaNgXvnrFpuF6XX2BG8Y.kZ1vlZhfTz8x8m.b4RbRi |새똥이  |null  |2025-06-12 11:53:21 |
+|---|----|-------------------------------------------------------------|-----|------|--------------------|
+
+16:24:01.546 [main] INFO  MemberService - false

@@ -7,11 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>index</h1>
-<form method="post">
-	<input name="id" value="sae">
-	<input type="password" name="pw" value="1234">
-	<button>로그인</button>
-</form>
+	<form action="er2.jsp">
+		<input name="v1"> / <input name="v2"> <button>계산하기</button>
+	</form>
 </body>
 </html>
