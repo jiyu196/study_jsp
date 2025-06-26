@@ -50,7 +50,9 @@ public class ReplyMapperTest {
     @DisplayName("댓글 추가 테스트")
     public void testInsert() {
         Reply reply = Reply.builder().content("매퍼 테스트").id("sae").bno(3L).build();
+        log.info("{}", reply);
         replyMapper.insert(reply);
+        log.info("{}", reply);
     }
 
     @Test
@@ -62,6 +64,9 @@ public class ReplyMapperTest {
         reply.setContent("수정하기");
         replyMapper.update(reply);
     }
+    
+ 
+    
 
     @Test
     @DisplayName("댓글삭제 테스트")

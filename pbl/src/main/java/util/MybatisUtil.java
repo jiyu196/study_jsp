@@ -29,8 +29,12 @@ public class MybatisUtil {
 	}
 	
 	public static SqlSession getSqlSession() {
-		return sqlSessionFactory.openSession(true);
+		return getSqlSession(true);
 	}
+	public static SqlSession getSqlSession(boolean autoCommit) {
+		return sqlSessionFactory.openSession(autoCommit);
+	}   // --오버로딩 
+	
 	public static void main(String[] args) {
 		System.out.println(sqlSessionFactory.getConfiguration().getEnvironment().getDataSource());
 		System.out.println(getSqlSession());

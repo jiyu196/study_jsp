@@ -101,13 +101,19 @@ public class ReplyServlet extends HttpServlet{
 
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String uri = getURI(req);
+		Long rno = Long.valueOf(uri);
+		
 		String ret = String.join("", req.getReader().lines().toList());
 		Reply reply = new Gson().fromJson(ret, Reply.class);
-		new ReplyService().modify(reply);
 		
+		// 이 시점에서는 rno > null
+		new ReplyService().modify(reply);
+		// 이 시점에서는 rno > not null
 		
 		resp.setContentType("application/json; charset=utf-8");
-		resp.getWriter().print(new Gson().toJson(Map.of("result", true)));
+		resp.getWriter().print(new Gson().toJson(Map.of("result", true, "reply", reply)));  
+		/// "reply", reply 이거 추가한게 key value가 되고, 또하나의 Key value가 됨
 	
 	}
 	

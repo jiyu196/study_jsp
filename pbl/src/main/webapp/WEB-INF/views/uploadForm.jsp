@@ -1,58 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri= "http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="../common/head.jsp" %>
+<%@ include file="common/head.jsp" %>  
 </head>
 <body>
-<%@ include file="../common/header.jsp" %>
-<%@ include file="../common/nav.jsp" %>
-	<div class="container p-0">
-	
-	<main>
-        <form method="post" id="writeForm">
-        <div class="samll border-bottom border-3 p-0 pb-2"><a href="#" class="small" class="small"><span class="text-primary">자유게시판</span> 카테고리</a></div>
-        <div class="small p-0 py-2">
-            <input placeholder="title"  class="form-control" name="title" id="title">
-        </div>
-        <div class="p-0 py-2 bg-light small border-2 border-muted">
-              <textarea name="content" id="editor1" class="form-control resize-none"></textarea>
-        </div>
-
+	<div class="container">
 		<div class="d-grid my-2 attach-area">
-			<div class="small my-1"><i class="fa-solid fa-paperclip"></i> 첨부파일</div>
 			<label class="btn btn-info">파일첨부 <input type="file" multiple class="d-none" id="f1"></label>
 			<ul class="list-group my-3 attach-list">
 			</ul>
 			<div class="row justify-content-around w-75 mx-auto attach-thumb">
+				<div class="my-2 col-sm-4 col-lg-2"><div style="height: 150px" class="my-2 bg-primary"><i class="fa-regular fa-circle-xmark float-end text-danger m-2"></i> </div></div>
 			</div>
 		</div>
-		
-        <div class="my-2">
-            <button class="btn btn-secondary btn-sm"><i class="fa-solid fa-list-ul"></i> 목록</button>
-            <div class="float-end">
-                <button class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-pen-fancy"></i> 글쓰기</button>
-            </div>
-        </div>
-        <input type="hidden" name="id" value="${member.id}"/>
-        <input type="hidden" name="cno" value="2"/>
-        <input type="hidden" name="encodedStr" value="">
-        </form>
-    </main>
-</div>
- <script>
-   
-      $(function() {
-          CKEDITOR.replace('editor1', {
-              height: 400
-          });
-      });
-   
-  </script>
-  <script>
+	</div>
+	<script>
 	$(function() {
 
 		//return true / false
@@ -90,20 +54,7 @@
 	});
 		
 		$("#f1").change(function() {
-
-		$("#writeForm").submit(function() {
-			event.preventDefault();  /* submit 막는거 */
-			const data = [];
-			$(".attach-list li").each(function() {
-				data.push({...this.dataset});
-				
-			});
-			console.log(JSON.stringify(data));
-			$("[name='encodedStr']").val(JSON.stringify(data));
-			this.submit();
-		
-		})
-		
+			
 		/* $("#uploadForm").submit(function() { */
 			event.preventDefault();  /* submit 막는거 */
 			const formData = new FormData(); /* 일단 빈 객체로만듬 */
@@ -167,6 +118,5 @@
 	})
 
 	</script>
-<%@ include file="../common/footer.jsp" %>
 </body>
 </html>

@@ -45,7 +45,11 @@
   	<!-- 글 등록 -->
   	<insert id="insert">
   	insert into tbl_board (title, content, id, cno) values (#{title}, #{content}, #{id}, #{cno})
+  	<selectKey keyProperty="bno" resultType="Long" order="AFTER">
+  	select max(bno) from tbl_board  <!--글 쓸 떄 글번호를 알아오는  -->
+  	</selectKey>
   	</insert>
+  
   	
 	<!-- 게시글 갯수 -->
   	<select id="getCount" resultType="long">

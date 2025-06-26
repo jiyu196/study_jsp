@@ -20,10 +20,15 @@
      select * from tbl_reply where rno = #{rno}
      </select>
 
+	<!--글 등록  -->
     <insert id="insert"> 
-    insert into tbl_reply(content, id, bno) values ( #{content}, #{id}, #{bno}) 
+    insert into tbl_reply(content, id, bno) values ( #{content}, #{id}, #{bno})
+    <selectKey resultType="long" keyProperty="rno" order="AFTER">
+    select max(rno) from tbl_reply;  <!-- 행 1개에 컬럼1개 / order 이거 한 이후에 하겠다는 뜻-->
+    </selectKey> 
     </insert>
 
+	<!-- 글 수정 -->
     <update id="update">
     update tbl_reply set content = #{content} where rno =#{rno}
     </update>
