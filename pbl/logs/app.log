@@ -1,70 +1,123 @@
-10:48:19.632 [main] INFO  sqltiming - delete from tbl_reply where rno = 4
- {executed in 7 msec}
-10:48:19.707 [main] INFO  sqltiming - select * from tbl_reply where bno = 4
-
-     and rno < 35
-
-     order by rno desc limit 5
- {executed in 7 msec}
-10:48:19.740 [main] INFO  ReplyMapperTest - 수정내용
-10:48:19.740 [main] INFO  ReplyMapperTest - 댓글 테스트
-10:48:19.740 [main] INFO  ReplyMapperTest - 수정하기
-10:48:19.740 [main] INFO  ReplyMapperTest - 수정내용
-10:48:19.740 [main] INFO  ReplyMapperTest - 댓글 테스트
-10:48:19.752 [main] INFO  sqltiming - select * from tbl_reply where rno = 7
- {executed in 5 msec}
-10:48:19.752 [main] INFO  ReplyMapperTest - Reply(rno=7, content=매퍼 테스트, id=sae, regdate=2025-06-20 12:32:36, bno=3)
-10:48:19.801 [main] INFO  sqltiming - select * from tbl_reply where bno = 4
-
-     order by rno desc limit 5
- {executed in 6 msec}
-10:48:19.804 [main] INFO  ReplyMapperTest - 없어지네
-10:48:19.804 [main] INFO  ReplyMapperTest - 시간뜨는거 신기하다
-10:48:19.804 [main] INFO  ReplyMapperTest - 진짜되네
-10:48:19.804 [main] INFO  ReplyMapperTest - 테스트임
-10:48:19.804 [main] INFO  ReplyMapperTest - 댓글 테스트
-10:48:19.806 [main] INFO  ReplyMapperTest - Reply(rno=null, content=매퍼 테스트, id=sae, regdate=null, bno=3)
-10:48:19.840 [main] INFO  sqltiming - insert into tbl_reply(content, id, bno) values ( '매퍼 테스트', 'sae', 3)
- {executed in 7 msec}
-10:48:19.845 [main] INFO  sqltiming - select max(rno) from tbl_reply;
- {executed in 5 msec}
-10:48:19.848 [main] INFO  ReplyMapperTest - Reply(rno=142, content=매퍼 테스트, id=sae, regdate=null, bno=3)
-10:48:19.885 [main] INFO  sqltiming - select * from tbl_reply where rno = 5
- {executed in 5 msec}
-10:48:19.891 [main] INFO  sqltiming - update tbl_reply set content = '수정하기' where rno =5
- {executed in 5 msec}
-10:58:14.405 [main] INFO  sqltiming - delete from tbl_reply where rno = 4
- {executed in 8 msec}
-10:58:14.478 [main] INFO  sqltiming - select * from tbl_reply where bno = 4
+09:56:26.531 [main] ERROR HikariConfig - Failed to load driver class jdbc.driver.classname from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@75b84c92
+09:57:38.078 [main] ERROR HikariConfig - Failed to load driver class jdbc.driver.classname from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@75b84c92
+10:07:55.397 [main] INFO  sqltiming - delete from tbl_reply where rno = 4
+ {executed in 11 msec}
+10:07:55.486 [main] INFO  sqltiming - select * from tbl_reply where bno = 4
 
      and rno < 35
 
      order by rno desc limit 5
  {executed in 8 msec}
-10:58:14.518 [main] INFO  ReplyMapperTest - 수정내용
-10:58:14.519 [main] INFO  ReplyMapperTest - 댓글 테스트
-10:58:14.519 [main] INFO  ReplyMapperTest - 수정하기
-10:58:14.519 [main] INFO  ReplyMapperTest - 수정내용
-10:58:14.519 [main] INFO  ReplyMapperTest - 댓글 테스트
-10:58:14.530 [main] INFO  sqltiming - select * from tbl_reply where rno = 7
- {executed in 6 msec}
-10:58:14.532 [main] INFO  ReplyMapperTest - Reply(rno=7, content=매퍼 테스트, id=sae, regdate=2025-06-20 12:32:36, bno=3)
-10:58:14.571 [main] INFO  sqltiming - select * from tbl_reply where bno = 4
+10:07:55.566 [main] INFO  ReplyMapperTest - 수정내용
+10:07:55.569 [main] INFO  ReplyMapperTest - 댓글 테스트
+10:07:55.569 [main] INFO  ReplyMapperTest - 수정하기
+10:07:55.570 [main] INFO  ReplyMapperTest - 수정내용
+10:07:55.570 [main] INFO  ReplyMapperTest - 댓글 테스트
+10:07:55.586 [main] INFO  sqltiming - select * from tbl_reply where rno = 7
+ {executed in 8 msec}
+10:07:55.588 [main] INFO  ReplyMapperTest - Reply(rno=7, content=매퍼 테스트, id=sae, regdate=2025-06-20 12:32:36, bno=3)
+10:07:55.612 [main] INFO  sqltiming - select * from tbl_reply where bno = 4
 
      order by rno desc limit 5
+ {executed in 6 msec}
+10:07:55.616 [main] INFO  ReplyMapperTest - post man에서 수정한 글
+되는것 같군
+근데 왜 수정하자마자 안변하지
+10:07:55.617 [main] INFO  ReplyMapperTest - 페이지 처리 이후
+10:07:55.620 [main] INFO  ReplyMapperTest - post man에서 수정한 글
+250626
+10:07:55.620 [main] INFO  ReplyMapperTest - 시간뜨는거 신기하다
+10:07:55.620 [main] INFO  ReplyMapperTest - 진짜되네
+10:07:55.622 [main] INFO  ReplyMapperTest - Reply(rno=null, content=매퍼 테스트, id=sae, regdate=null, bno=3)
+10:07:55.642 [main] INFO  sqltiming - insert into tbl_reply(content, id, bno) values ( '매퍼 테스트', 'sae', 3)
  {executed in 7 msec}
-10:58:14.576 [main] INFO  ReplyMapperTest - 5개인건가?
-10:58:14.576 [main] INFO  ReplyMapperTest - 페이지 처리 이후
-10:58:14.576 [main] INFO  ReplyMapperTest - post man에서 수정한 글
-10:58:14.576 [main] INFO  ReplyMapperTest - post man에서 수정한 글
-10:58:14.576 [main] INFO  ReplyMapperTest - 없어지네
-10:58:14.579 [main] INFO  ReplyMapperTest - Reply(rno=null, content=매퍼 테스트, id=sae, regdate=null, bno=3)
-10:58:14.618 [main] INFO  sqltiming - insert into tbl_reply(content, id, bno) values ( '매퍼 테스트', 'sae', 3)
+10:07:55.652 [main] INFO  sqltiming - select max(rno) from tbl_reply;
+ {executed in 9 msec}
+10:07:55.655 [main] INFO  ReplyMapperTest - Reply(rno=152, content=매퍼 테스트, id=sae, regdate=null, bno=3)
+10:07:55.696 [main] INFO  sqltiming - select * from tbl_reply where rno = 5
+ {executed in 6 msec}
+10:07:55.704 [main] INFO  sqltiming - update tbl_reply set content = '수정하기' where rno =5
  {executed in 7 msec}
-10:58:14.624 [main] INFO  sqltiming - select max(rno) from tbl_reply;
+10:07:55.713 [main] INFO  BoardMapperTest - null
+10:07:55.751 [main] INFO  sqltiming - select bno, title, content, id, regdate, moddate, cnt, cno, 
+	  	(select count(*) from tbl_reply r where r.bno = b.bno) replyCnt,
+	  	(select count(*) from tbl_attach a where a.bno = b.bno) attachCnt,
+		(select uuid from tbl_attach a where a.bno = b.bno and image = 1 order by odr limit 1) uuid,
+		(select path from tbl_attach a where a.bno = b.bno and image = 1 order by odr limit 1) path
+  	from tbl_board b
+
+  	 WHERE  cno = 2 
+
+  	order by bno desc 
+  	limit 10 offset 0;
+ {executed in 8 msec}
+10:07:55.765 [main] INFO  BoardMapperTest - [Attach(uuid=bc250572-31a3-42b3-8e63-945cb0a792ef.jpg, path=2025/06/27, image=false, origin=null, bno=null, rno=null, odr=0, size=0)], 2, 0
+10:07:55.778 [main] INFO  BoardMapperTest - [Attach(uuid=bb19030d-9df1-4f2f-8b0c-ebfffd764316.png, path=2025/06/26, image=false, origin=null, bno=null, rno=null, odr=0, size=0)], 3, 0
+10:07:55.778 [main] INFO  BoardMapperTest - [Attach(uuid=20021b61-0291-48df-bc5a-fbf812f12d8d.png, path=2025/06/26, image=false, origin=null, bno=null, rno=null, odr=0, size=0)], 3, 0
+10:07:55.779 [main] INFO  BoardMapperTest - [Attach(uuid=f11239e0-8336-40bc-beca-7d003a659abc.jpg, path=2025/06/26, image=false, origin=null, bno=null, rno=null, odr=0, size=0)], 3, 0
+10:07:55.779 [main] INFO  BoardMapperTest - [Attach(uuid=61658c8e-dd60-4211-9591-47d674c652a6.jpg, path=2025/06/26, image=false, origin=null, bno=null, rno=null, odr=0, size=0)], 3, 0
+10:07:55.779 [main] INFO  BoardMapperTest - [Attach(uuid=4ad669f3-7e83-4394-8a09-5d53ce6aa4e0.jpg, path=2025/06/26, image=false, origin=null, bno=null, rno=null, odr=0, size=0)], 3, 0
+10:07:55.779 [main] INFO  BoardMapperTest - [], 0, 0
+10:07:55.779 [main] INFO  BoardMapperTest - [], 0, 0
+10:07:55.779 [main] INFO  BoardMapperTest - [], 0, 0
+10:07:55.779 [main] INFO  BoardMapperTest - [], 0, 0
+10:07:55.813 [main] INFO  sqltiming - select bno, title, content, id, regdate, moddate, cnt, cno, 
+	  	(select count(*) from tbl_reply r where r.bno = b.bno) replyCnt,
+	  	(select count(*) from tbl_attach a where a.bno = b.bno) attachCnt,
+		(select uuid from tbl_attach a where a.bno = b.bno and image = 1 order by odr limit 1) uuid,
+		(select path from tbl_attach a where a.bno = b.bno and image = 1 order by odr limit 1) path
+  	from tbl_board b
+
+  	 WHERE  cno = 2 
+
+  	order by bno desc 
+  	limit 10 offset 0;
  {executed in 6 msec}
-10:58:14.626 [main] INFO  ReplyMapperTest - Reply(rno=148, content=매퍼 테스트, id=sae, regdate=null, bno=3)
-10:58:14.657 [main] INFO  sqltiming - select * from tbl_reply where rno = 5
+10:07:55.823 [main] INFO  BoardMapperTest - ㅇㅇㅇ
+10:07:55.823 [main] INFO  BoardMapperTest - 찬이님...
+10:07:55.823 [main] INFO  BoardMapperTest - ㅊㅊㅊ
+10:07:55.824 [main] INFO  BoardMapperTest - 히히
+10:07:55.824 [main] INFO  BoardMapperTest - 우와
+10:07:55.824 [main] INFO  BoardMapperTest - ㅁㅁ
+10:07:55.824 [main] INFO  BoardMapperTest - ㅁㅁ
+10:07:55.824 [main] INFO  BoardMapperTest - 첨부파일
+10:07:55.824 [main] INFO  BoardMapperTest - 첨부파일
+10:07:55.824 [main] INFO  BoardMapperTest - 선생님 최고
+10:07:55.843 [main] INFO  sqltiming - select *, a.bno a_bno
+	from tbl_board b
+	left join tbl_attach a using(bno)
+	where bno = 3;
+ {executed in 10 msec}
+10:07:55.845 [main] INFO  BoardMapperTest - Board(bno=3, title=제목만 수정하기, content=수정내용, id=sae, regdate=2025-06-12 17:37:14, moddate=2025-06-26 12:14:34, cnt=0, cno=2, replyCnt=0, attachCnt=0, attachs=[])
+10:07:55.892 [main] INFO  sqltiming - select *, a.bno a_bno
+	from tbl_board b
+	left join tbl_attach a using(bno)
+	where bno = 3;
  {executed in 6 msec}
-10:58:14.664 [main] INFO  sqltiming - update tbl_reply set content = '수정하기' where rno =5
- {executed in 6 msec}
+10:07:55.902 [main] INFO  sqltiming - update tbl_board set
+	title = '제목만 수정하기',
+	content = '수정내용',
+	moddate = now(),
+	cno = 2
+	where bno = 3
+ {executed in 8 msec}
+11:25:58.581 [main] INFO  sqltiming - select *from tbl_category tc where tc.status = 'ACTIVE' order by odr
+ {executed in 8 msec}
+11:30:48.053 [main] INFO  sqltiming - select *from tbl_category tc where tc.status = 'ACTIVE' order by odr
+ {executed in 17 msec}
+11:30:48.081 [main] INFO  CategoryMapperTest - Category(cno=2, cname=자유게시판, regdate=2025-06-12 17:37:01, cViewType=LIST, odr=0, status=ACTIVE)
+11:30:48.087 [main] INFO  CategoryMapperTest - Category(cno=1, cname=갤러리, regdate=2025-06-12 17:37:00, cViewType=GALLERY, odr=1, status=ACTIVE)
+11:30:48.088 [main] INFO  CategoryMapperTest - Category(cno=3, cname=Q&A, regdate=2025-06-12 17:37:02, cViewType=LIST, odr=2, status=ACTIVE)
+11:30:48.088 [main] INFO  CategoryMapperTest - Category(cno=4, cname=자료실, regdate=2025-06-12 17:37:03, cViewType=LIST, odr=3, status=ACTIVE)
+11:32:47.603 [main] INFO  sqltiming - select *from tbl_category tc where tc.status = 'ACTIVE' order by odr
+ {executed in 9 msec}
+11:32:47.631 [main] INFO  CategoryMapperTest - Category(cno=2, cname=자유게시판, regdate=2025-06-12 17:37:01, c_view_type=LIST, odr=0, status=ACTIVE)
+11:32:47.638 [main] INFO  CategoryMapperTest - Category(cno=1, cname=갤러리, regdate=2025-06-12 17:37:00, c_view_type=GALLERY, odr=1, status=ACTIVE)
+11:32:47.639 [main] INFO  CategoryMapperTest - Category(cno=3, cname=Q&A, regdate=2025-06-12 17:37:02, c_view_type=LIST, odr=2, status=ACTIVE)
+11:32:47.639 [main] INFO  CategoryMapperTest - Category(cno=4, cname=자료실, regdate=2025-06-12 17:37:03, c_view_type=LIST, odr=3, status=ACTIVE)
+11:38:42.864 [main] INFO  sqltiming - select *from tbl_category tc where tc.status = 'ACTIVE' order by odr
+ {executed in 12 msec}
+11:38:42.898 [main] INFO  CategoryMapperTest - Category(cno=2, cname=자유게시판, regdate=2025-06-12 17:37:01, cViewType=LIST, odr=0, status=ACTIVE)
+11:38:42.905 [main] INFO  CategoryMapperTest - Category(cno=1, cname=갤러리, regdate=2025-06-12 17:37:00, cViewType=GALLERY, odr=1, status=ACTIVE)
+11:38:42.905 [main] INFO  CategoryMapperTest - Category(cno=3, cname=Q&A, regdate=2025-06-12 17:37:02, cViewType=LIST, odr=2, status=ACTIVE)
+11:38:42.905 [main] INFO  CategoryMapperTest - Category(cno=4, cname=자료실, regdate=2025-06-12 17:37:03, cViewType=LIST, odr=3, status=ACTIVE)

@@ -1,0 +1,70 @@
+10:48:19.632 [main] INFO  sqltiming - delete from tbl_reply where rno = 4
+ {executed in 7 msec}
+10:48:19.707 [main] INFO  sqltiming - select * from tbl_reply where bno = 4
+
+     and rno < 35
+
+     order by rno desc limit 5
+ {executed in 7 msec}
+10:48:19.740 [main] INFO  ReplyMapperTest - 수정내용
+10:48:19.740 [main] INFO  ReplyMapperTest - 댓글 테스트
+10:48:19.740 [main] INFO  ReplyMapperTest - 수정하기
+10:48:19.740 [main] INFO  ReplyMapperTest - 수정내용
+10:48:19.740 [main] INFO  ReplyMapperTest - 댓글 테스트
+10:48:19.752 [main] INFO  sqltiming - select * from tbl_reply where rno = 7
+ {executed in 5 msec}
+10:48:19.752 [main] INFO  ReplyMapperTest - Reply(rno=7, content=매퍼 테스트, id=sae, regdate=2025-06-20 12:32:36, bno=3)
+10:48:19.801 [main] INFO  sqltiming - select * from tbl_reply where bno = 4
+
+     order by rno desc limit 5
+ {executed in 6 msec}
+10:48:19.804 [main] INFO  ReplyMapperTest - 없어지네
+10:48:19.804 [main] INFO  ReplyMapperTest - 시간뜨는거 신기하다
+10:48:19.804 [main] INFO  ReplyMapperTest - 진짜되네
+10:48:19.804 [main] INFO  ReplyMapperTest - 테스트임
+10:48:19.804 [main] INFO  ReplyMapperTest - 댓글 테스트
+10:48:19.806 [main] INFO  ReplyMapperTest - Reply(rno=null, content=매퍼 테스트, id=sae, regdate=null, bno=3)
+10:48:19.840 [main] INFO  sqltiming - insert into tbl_reply(content, id, bno) values ( '매퍼 테스트', 'sae', 3)
+ {executed in 7 msec}
+10:48:19.845 [main] INFO  sqltiming - select max(rno) from tbl_reply;
+ {executed in 5 msec}
+10:48:19.848 [main] INFO  ReplyMapperTest - Reply(rno=142, content=매퍼 테스트, id=sae, regdate=null, bno=3)
+10:48:19.885 [main] INFO  sqltiming - select * from tbl_reply where rno = 5
+ {executed in 5 msec}
+10:48:19.891 [main] INFO  sqltiming - update tbl_reply set content = '수정하기' where rno =5
+ {executed in 5 msec}
+10:58:14.405 [main] INFO  sqltiming - delete from tbl_reply where rno = 4
+ {executed in 8 msec}
+10:58:14.478 [main] INFO  sqltiming - select * from tbl_reply where bno = 4
+
+     and rno < 35
+
+     order by rno desc limit 5
+ {executed in 8 msec}
+10:58:14.518 [main] INFO  ReplyMapperTest - 수정내용
+10:58:14.519 [main] INFO  ReplyMapperTest - 댓글 테스트
+10:58:14.519 [main] INFO  ReplyMapperTest - 수정하기
+10:58:14.519 [main] INFO  ReplyMapperTest - 수정내용
+10:58:14.519 [main] INFO  ReplyMapperTest - 댓글 테스트
+10:58:14.530 [main] INFO  sqltiming - select * from tbl_reply where rno = 7
+ {executed in 6 msec}
+10:58:14.532 [main] INFO  ReplyMapperTest - Reply(rno=7, content=매퍼 테스트, id=sae, regdate=2025-06-20 12:32:36, bno=3)
+10:58:14.571 [main] INFO  sqltiming - select * from tbl_reply where bno = 4
+
+     order by rno desc limit 5
+ {executed in 7 msec}
+10:58:14.576 [main] INFO  ReplyMapperTest - 5개인건가?
+10:58:14.576 [main] INFO  ReplyMapperTest - 페이지 처리 이후
+10:58:14.576 [main] INFO  ReplyMapperTest - post man에서 수정한 글
+10:58:14.576 [main] INFO  ReplyMapperTest - post man에서 수정한 글
+10:58:14.576 [main] INFO  ReplyMapperTest - 없어지네
+10:58:14.579 [main] INFO  ReplyMapperTest - Reply(rno=null, content=매퍼 테스트, id=sae, regdate=null, bno=3)
+10:58:14.618 [main] INFO  sqltiming - insert into tbl_reply(content, id, bno) values ( '매퍼 테스트', 'sae', 3)
+ {executed in 7 msec}
+10:58:14.624 [main] INFO  sqltiming - select max(rno) from tbl_reply;
+ {executed in 6 msec}
+10:58:14.626 [main] INFO  ReplyMapperTest - Reply(rno=148, content=매퍼 테스트, id=sae, regdate=null, bno=3)
+10:58:14.657 [main] INFO  sqltiming - select * from tbl_reply where rno = 5
+ {executed in 6 msec}
+10:58:14.664 [main] INFO  sqltiming - update tbl_reply set content = '수정하기' where rno =5
+ {executed in 6 msec}

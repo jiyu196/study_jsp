@@ -56,11 +56,11 @@ public class BoardMapperTest {
 	@DisplayName("목록 조회 검색어 테스트")
 	public void testList2() {
 		
-		Criteria cri = new Criteria(1, 10, 2, "TI", "오늘");  //1페이지 10개, 2번 카테고리
+		Criteria cri = new Criteria(1, 10, 2);  //1페이지 10개, 2번 카테고리
 		// 오늘이라는 키워드를 1페이지에 10개씩 카테고리에 보이게 하겠다
 		log.info(Arrays.toString(cri.getTypes()));
 		List<Board> list = boardMapper.list(cri);
-//		list.forEach(b -> log.info("{}", b.getTitle()));
+		list.forEach(b -> log.info("{}, {}, {}", b.getAttachs(), b.getAttachCnt(), b.getReplyCnt()));  // 첨부파일 개수 확인하려고디비랑 같은지
 	}
 	
 	@Test

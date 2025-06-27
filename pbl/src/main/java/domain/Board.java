@@ -22,14 +22,18 @@ public class Board {
 	private String title;
 	private String content;
 	private String id;
-	private String regdate;
-	private String moddate;
-	private Integer cnt;
-	private Integer cno;
+	private String regdate; // 작성일
+	private String moddate; // 수정일
+	private Integer cnt; // 조회수 넘버
+	private Integer cno; // 카테고리 넘버
+	private int replyCnt; // 댓글 갯수 넘버
+	private int attachCnt; // 첨부 파일 수
+
 	
-	
+
+
 	public Board(Long bno, String title, String content, String id, String regdate, String moddate, Integer cnt,
-			Integer cno) {
+			Integer cno, int replyCnt, int attachCnt) {
 		super();
 		this.bno = bno;
 		this.title = title;
@@ -39,10 +43,13 @@ public class Board {
 		this.moddate = moddate;
 		this.cnt = cnt;
 		this.cno = cno;
+		this.replyCnt = replyCnt;
+		this.attachCnt = attachCnt;
 	}
 
 
 
+
 	@Builder.Default
-	private List<Attach> attachs = new ArrayList<>();
+	private List<Attach> attachs = new ArrayList<>();  //동기방식으로가져옴
 }

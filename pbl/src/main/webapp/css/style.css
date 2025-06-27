@@ -51,6 +51,8 @@
 
 		.attach-area i {cursor: pointer;}  /* 커서 손가락이 보이는 */
 		.attach-thumb div div {background: no-repeat center;}
+	  	.attach-list{cursor: grab;}
+    	.attach-list:active{cursor: grabbing;}
 		
         /* misc */
         .arrow-area i {position: fixed; bottom: 100px; right: 100px; font-size: 3em; 

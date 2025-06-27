@@ -60,7 +60,7 @@ public class Write extends HttpServlet{
 		log.info("{}", list);
 
 		//board 인스턴스 생성(4개)
-		Board board = Board.builder().id(id).content(content).title(title).cno(cno).build();
+		Board board = Board.builder().attachs(list).id(id).content(content).title(title).cno(cno).build();
 		log.info("{}", board);
 
 		//서비스 호출(board 객체가지고)

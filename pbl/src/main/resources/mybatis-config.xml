@@ -6,10 +6,13 @@
 	  <typeAliases>
 	  	<package name="domain"/>
 	  </typeAliases>
+  	<typeHandlers>
+  		<typeHandler javaType="domain.en.CategoryStatus" handler="mapper.handler.CategoryStatusTypeHandler" />
+  		<typeHandler javaType="domain.en.CategoryViewType" handler="mapper.handler.CategoryViewTypeHandler" />
+  	</typeHandlers>
 	  <mappers>
 	 <!-- <mapper class="mapper.ReviewMapper"/>
 	  	<mapper class="mapper.MemberMapper"/> --> 	
 	  	<package name="mapper"/>
 	  </mappers>
-  	
   </configuration>

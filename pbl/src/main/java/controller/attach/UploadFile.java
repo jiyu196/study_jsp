@@ -94,6 +94,7 @@ public class UploadFile extends HttpServlet{
 					.image(image)
 					.path(path)
 					.odr(odr++)   // 증감연산자
+					.size(fileSize)   // 증감연산자
 			.build());
 		}
 		
