@@ -29,7 +29,12 @@ public class Board {
 	private int replyCnt; // 댓글 갯수 넘버
 	private int attachCnt; // 첨부 파일 수
 
-	
+	// 답글을 위한 3개의 필드 
+	private Long grp;  // null일 수도 있기 때문에 Long 대문자인거임.
+	@Builder.Default
+	private int seq = 1; // 얘는 null이면 안됨
+	@Builder.Default
+	private int depth = 1;
 
 
 	public Board(Long bno, String title, String content, String id, String regdate, String moddate, Integer cnt,

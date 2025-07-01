@@ -49,7 +49,33 @@ public class BoardService {
 		SqlSession session = MybatisUtil.getSqlSession(false);
 		try {	
 			BoardMapper mapper = session.getMapper(BoardMapper.class);
-			mapper.insert(board);
+			Long bno = board.getBno();  // bno는 부모의 번호
+			if(bno == null) {  // 여기는 답글 아님
+				mapper.insert(board);   // 이 시점에 부여
+				mapper.updateGrpMyself(board);
+			}
+			else { // 여기가 답글
+ 				// 1. 부모글 조회
+				Board parent =  mapper.selectOne(bno);  // 부모글을 가져오는거
+				// 내 위치에 작성하기 위한 update. 나보다 seq값을 더 밀어내야함
+				
+				// 2. maxSeq 취득
+				// select
+				int maxSeq = mapper.selectMaxSeq(parent);
+				board.setSeq(parent.getSeq()+1); // 수정   
+				
+				// 3. 해당조건의 게시글들의 seq 밀어내기
+				board.setGrp(parent.getGrp());  // 확정
+				board.setDepth(parent.getDepth()+1); // 확정 
+				mapper.updateSeqIncease(parent);  // 이제 한번 밀려남.
+				
+				// 4. insert
+				
+				mapper.insertChild(board);
+				
+			}
+			
+//			mapper.insert(board);
 			AttachMapper attachMapper = session.getMapper(AttachMapper.class);
 			board.getAttachs().forEach(a -> {
 				a.setBno(board.getBno());

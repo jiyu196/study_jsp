@@ -20,6 +20,7 @@ import domain.dto.Criteria;
 import lombok.extern.slf4j.Slf4j;
 import service.BoardService;
 import util.AlertUtil;
+import util.ParamUtils;
 @Slf4j
 @WebServlet("/board/write")
 public class Write extends HttpServlet{
@@ -46,26 +47,36 @@ public class Write extends HttpServlet{
             AlertUtil.alert("로그인 후 글 작성하세요", "/member/login?" + cri.getQs2(), req, resp, true);
             return;
         }
+        
         // 파라미터 수집
-        String title = req.getParameter("title");
-        String content = req.getParameter("content");
-        String id = req.getParameter("id");
-        Integer cno = Integer.valueOf(req.getParameter("cno"));
+//        Board b = ParamUtils.get(req, Board.class);
+//        
+//        String title = req.getParameter("title");
+//        String content = req.getParameter("content");
+//        String id = req.getParameter("id");
+//        Integer cno = Integer.valueOf(req.getParameter("cno"));
+
+
         
         
         //첨부파일 내용 수집
         String encodedStr =  req.getParameter("encodedStr");
 		Type type =  new TypeToken<List<Attach>>() {}.getType();
-		List<Attach> list = new Gson().fromJson(encodedStr, type);
+		List<Attach> list = new Gson().fromJson(encodedStr, type);  //이건 json이 수집했기 때문에 빌더쓰는거 아님
 		log.info("{}", list);
-
+		Board board = ParamUtils.get(req, Board.class);
+		if(list != null) {
+			board.setAttachs(list);
+		}
 		//board 인스턴스 생성(4개)
-		Board board = Board.builder().attachs(list).id(id).content(content).title(title).cno(cno).build();
+		
+//		Board board = Board.builder().attachs(list).id(id).content(content).title(title).cno(cno).build();
 		log.info("{}", board);
 
 		//서비스 호출(board 객체가지고)
 		new BoardService().write(board);
 		
+		log.info("{}", cri);
         //리디렉션(board/list)
         AlertUtil.alert("글이 등록되었습니다", "/board/list?cno=" + cri.getCno() + "&amount=" + cri.getAmount(), req, resp); //글쓰기작성 후 1페이지로 보내겠다
 
