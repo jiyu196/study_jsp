@@ -24,15 +24,16 @@ import domain.Attach;
 import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnailator;
 import net.coobird.thumbnailator.Thumbnails;
+import util.S3Util;
 
 @WebServlet("/upload")
 @MultipartConfig(location = "d:/upload/tmp", 
 	maxRequestSize = 50 * 1024 * 1024,  // 한번의 요청당 최대 파일 크기
 	maxFileSize = 10 * 1024 * 1024, //파일 하나당 최대 크기
-	fileSizeThreshold = 1 * 1024 * 1024) // 이 크기를 넘어가면 location위치에 buffer를 기록
+	fileSizeThreshold = 10 * 1024 * 1024) // 이 크기를 넘어가면 location위치에 buffer를 기록
 @Slf4j
 public class UploadFile extends HttpServlet{
-
+	public static final String UPLOAD_PATH = "d:/upload/files";
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getRequestDispatcher("/WEB-INF/views/uploadForm.jsp").forward(req, resp);
@@ -42,7 +43,7 @@ public class UploadFile extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//업로드된 파일 처리
 		Collection<Part> parts =  req.getParts();
-		final String UPLOAD_PATH = "d:/upload/files";
+		
 		List<Attach> attachs = new ArrayList<>();
 		
 		int odr = 0;
@@ -76,11 +77,16 @@ public class UploadFile extends HttpServlet{
 			}
 //			new File(realPath).mkdirs();  //s 가 빠지면 터짐. 있으면 만들고 없으면 안만듧
 			part.write(realPath + fileName);  //원본을 저장시켜라
+			
+			S3Util.upload(part,"upload/" + path + "/" + fileName);   //s3로 보내는 작업
 			if(image) {
 				try {
 				// 이미지인 경우 추가처리 > 썸네일(이미지를 축소시켜놓은) 생성
 					//높이가 길면 높이가 150, 가로가 길면 폭이 150  ==> 긴쪽의 높이, 너비 값을 맞춤
+					
+					File thumb = new File(realPath + "t_" + fileName);
 					Thumbnails.of(new File(realPath + fileName)).size(150, 150).toFile(realPath + "t_" + fileName);
+					S3Util.upload(thumb, "upload/" + path + "/t_" + fileName);
 				}
 				catch(Exception e) {
 					image = false;  // 이미지 변환을 시도했는데 실패하면, 메세지를 띄우는게 아니라 이건 이미지가 아니라고 뜨는. 임시방편으로 해놓는거고, 터지지 않게 해놓는거임
@@ -104,8 +110,12 @@ public class UploadFile extends HttpServlet{
 		
 	}
 	
-	private String genPath() { //path를 generate한는거
-		return new SimpleDateFormat("yyyy/MM/dd").format(new Date());
+//	private String genPath() { //path를 generate한는거
+//		return new SimpleDateFormat("yyyy/MM/dd").format(new Date());
+//	}
+	private String genPath() {
+		return new SimpleDateFormat("yyyy/MM/dd").format(new Date().getTime());
 	}
+	
 	
 }

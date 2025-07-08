@@ -60,11 +60,12 @@ public class Write extends HttpServlet{
         
         
         //첨부파일 내용 수집
-        String encodedStr =  req.getParameter("encodedStr");
+        String encodedStr =  req.getParameter("encodedStr");  
 		Type type =  new TypeToken<List<Attach>>() {}.getType();
 		List<Attach> list = new Gson().fromJson(encodedStr, type);  //이건 json이 수집했기 때문에 빌더쓰는거 아님
+		// 여기까지 3개가 첨부파일.
 		log.info("{}", list);
-		Board board = ParamUtils.get(req, Board.class);
+		Board board = ParamUtils.get(req, Board.class);  //  글 작성
 		if(list != null) {
 			board.setAttachs(list);
 		}
@@ -74,12 +75,12 @@ public class Write extends HttpServlet{
 		log.info("{}", board);
 
 		//서비스 호출(board 객체가지고)
-		new BoardService().write(board);
+		new BoardService().write(board);  // 이게 작성
 		
 		log.info("{}", cri);
         //리디렉션(board/list)
         AlertUtil.alert("글이 등록되었습니다", "/board/list?cno=" + cri.getCno() + "&amount=" + cri.getAmount(), req, resp); //글쓰기작성 후 1페이지로 보내겠다
-
+        // 그리고 글이 나오는
     }
 
 

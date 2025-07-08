@@ -24,7 +24,6 @@ public class Display extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 쿼리스트일 해석으로 Attach 객체 생성
 		// uuid, origin, path
-		final String UPLOAD_PATH = "d:/upload/files";
 		String uuid  = req.getParameter("uuid");
 		String path  = req.getParameter("path");
 		
@@ -32,7 +31,7 @@ public class Display extends HttpServlet{
 		
 		// 물리적 위치에 있는 실제 파일을 origin의 네임으로 치환 후 다운로드
 		
-		File file = new File(UPLOAD_PATH + "/" + path, uuid);
+		File file = new File(UploadFile.UPLOAD_PATH + "/" + path, uuid);
 		if(!file.exists()) {  //만약 파일이 존재하지 않으면 리턴해라 뭐를? resp저걸
 			resp.setContentType("text/html; charset=utf-8");
 			resp.getWriter().println("<h3>파일이 존재하지 않습니다</h3>");

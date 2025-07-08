@@ -72,7 +72,7 @@
 				data-image="${a.image}" 
 				data-path="${a.path}" 
 				data-size="${a.size}"
-				data-odr="${a.odr}">
+				data-odr="${a.odr}">z
 					<a href="/pbl/download?uuid=${a.uuid}&origin=${a.origin}&path=${a.path}">${a.origin}</a>
 					<!-- <i class="fa-solid fa-circle-xmark float-end text-danger"></i> -->
 				</li>
@@ -82,7 +82,8 @@
 				<c:forEach items="${board.attachs}" var="a">
 				<c:if test="${a.image}">
 				<div class="my-2 col-12 col-sm-4 col-lg-2 " data-uuid="${a.uuid}">
-					<div class="my-2 bg-primary" style="height: 150px; background-size: cover; background-image:url('/pbl/display?uuid=t_${a.uuid}&path=${a.path}')">
+					<div class="my-2 bg-primary" style="height: 150px; background-size: cover; 
+						background-image:url('${s3url}${a.path}/t_${a.uuid}')">
 						<%-- <i class="fa-solid fa-circle-xmark float-end text-danger m-2"></i> --%>
 					</div>
 				</div>

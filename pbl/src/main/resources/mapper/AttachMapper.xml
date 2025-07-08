@@ -26,5 +26,9 @@
     <delete id="deleteByBno"> 
     delete from tbl_attach where bno= #{bno}  <!-- 글 삭제 될때 같이 삭제 되라고 -->
     </delete>
+    
+    <select id="selectYesterdayList" resultType="attach">
+    select * from tbl_attach ta where path = DATE_FORMAT(DATE_SUB(now(), INTERVAL 1 DAY), '%Y/%m/%d')
+    </select>
 
  </mapper>
